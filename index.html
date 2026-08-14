@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pantropical Thesis Map</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="map"></div>
+
+<div id="app-title">
+  <h1>Pantropical Forest &amp; Regeneration Explorer</h1>
+  <div id="theme-tabs"></div>
+  <p id="theme-description"></p>
+</div>
+
+<div id="layer-panel" class="panel">
+  <h2>Layers</h2>
+  <div id="layer-list"></div>
+</div>
+
+<button id="legend-toggle" class="floating-toggle">Legend</button>
+<div id="legend-panel" class="panel hidden">
+  <button id="legend-close" title="Close">&times;</button>
+  <div id="legend-content"></div>
+</div>
+
+<div id="info-panel" class="panel hidden">
+  <button id="info-close" title="Close">&times;</button>
+  <h2>Location summary</h2>
+  <div id="info-coords"></div>
+  <div id="info-stats"></div>
+  <div id="info-chart-wrap">
+    <h3>Fragmentation: current vs. regeneration scenarios</h3>
+    <canvas id="compare-chart" width="320" height="200"></canvas>
+    <p class="note">Ghost-road-inclusive fragmentation comparison will be added once that dataset is available.</p>
+  </div>
+</div>
+
+<div id="loading" class="hidden">Loading layers&hellip;</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/georaster@1.6.0/dist/georaster.browser.bundle.min.js"></script>
+<script src="https://unpkg.com/georaster-layer-for-leaflet@3.10.0/dist/georaster-layer-for-leaflet.min.js"></script>
+<script src="https://unpkg.com/geoblaze@2.8.0/dist/geoblaze.web.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
+<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+<script src="layers.js?v=11"></script>
+<script src="app.js?v=11"></script>
+</body>
+</html>
