@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Natural regeneration opportunities: costs and benefits</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="map"></div>
+
+<div id="app-title">
+  <h1>Natural regeneration opportunities: costs and benefits</h1>
+  <p>Click anywhere to see the cost&ndash;benefit category for natural regeneration potential, biophysical potential for natural regeneration score, and how much natural regeneration could reduce species extinction risk at that location.</p>
+</div>
+
+<div id="layer-panel" class="panel">
+  <h2>Layers</h2>
+  <div id="layer-list"></div>
+</div>
+
+<button id="legend-toggle" class="floating-toggle">Legend &amp; Sources</button>
+<div id="legend-panel" class="panel hidden">
+  <button id="legend-close" title="Close">&times;</button>
+  <div id="legend-content"></div>
+</div>
+
+<div id="info-panel" class="panel hidden">
+  <button id="info-close" title="Close">&times;</button>
+  <h2>Location summary</h2>
+  <div id="info-coords"></div>
+  <div id="info-stats"></div>
+</div>
+
+<div id="loading" class="hidden">Loading layers&hellip;</div>
+
+<div id="citation-footer">
+  <strong>Variation in the costs and ecological benefits of tropical natural forest regeneration.</strong>
+  <em>Nature Ecology &amp; Evolution.</em>
+  DOI: <a href="https://doi.org/10.1038/s41559-026-03154-7" target="_blank" rel="noopener">10.1038/s41559-026-03154-7</a>
+  <span class="citation-sep">|</span>
+  Data: <a href="https://doi.org/10.5281/zenodo.20983218" target="_blank" rel="noopener">10.5281/zenodo.20983218</a>
+  <span class="citation-sep">|</span>
+  Please contact Juli (Jiaqi Li) at <a href="mailto:libenjuli@gmail.com">libenjuli@gmail.com</a> if you have questions or would like to know more.
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/georaster@1.6.0/dist/georaster.browser.bundle.min.js"></script>
+<script src="https://unpkg.com/georaster-layer-for-leaflet@3.10.0/dist/georaster-layer-for-leaflet.min.js"></script>
+<script src="https://unpkg.com/geoblaze@2.8.0/dist/geoblaze.web.min.js"></script>
+<script src="https://unpkg.com/chroma-js@2.4.2/chroma.min.js"></script>
+<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+<script src="layers.js?v=4"></script>
+<script src="app.js?v=4"></script>
+</body>
+</html>
