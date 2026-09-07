@@ -1,17 +1,14 @@
 const map = L.map("map", { zoomControl: false, worldCopyJump: true }).setView([0, 30], 3);
 L.control.zoom({ position: "topright" }).addTo(map);
 
-L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", {
-  attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-  subdomains: "abcd",
+// CARTO's basemap tiles now require an API key for unregistered domains
+// (shows "API KEY REQUIRED" watermarked into the tiles) — using OSM's
+// standard tile server instead, which needs no key or registration.
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: '&copy; OpenStreetMap contributors',
+  subdomains: "abc",
   maxZoom: 19,
   zIndex: 0
-}).addTo(map);
-
-L.tileLayer("https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png", {
-  subdomains: "abcd",
-  maxZoom: 19,
-  pane: "shadowPane"
 }).addTo(map);
 
 function layerZIndex(cfg) {
