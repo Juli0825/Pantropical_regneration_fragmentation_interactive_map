@@ -1,14 +1,19 @@
 const map = L.map("map", { zoomControl: false, worldCopyJump: true }).setView([0, 30], 3);
 L.control.zoom({ position: "topright" }).addTo(map);
 
-// CARTO's basemap tiles now require an API key for unregistered domains
-// (shows "API KEY REQUIRED" watermarked into the tiles) — using OSM's
-// standard tile server instead, which needs no key or registration.
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: '&copy; OpenStreetMap contributors',
-  subdomains: "abc",
-  maxZoom: 19,
+// Esri's Light Gray Canvas basemap: free, no API key needed, and visually
+// close to the CARTO light basemap (muted grey, minimal admin boundaries).
+L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+  attribution: 'Esri, HERE, Garmin, FAO, NOAA, USGS',
+  maxZoom: 16,
   zIndex: 0
+}).addTo(map);
+
+// Reference layer (labels/boundaries) goes in shadowPane, not the shared
+// tilePane, so it reliably sits above the base map and analysis layers.
+L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+  maxZoom: 16,
+  pane: "shadowPane"
 }).addTo(map);
 
 function layerZIndex(cfg) {
